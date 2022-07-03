@@ -1,0 +1,1 @@
+const String company_logo_image = "assets/images/dedaldevlogo.png";
