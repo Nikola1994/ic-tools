@@ -5,6 +5,7 @@ import 'package:ic_tools/app_localisation.dart';
 import 'package:ic_tools/bloc/main/main_bloc.dart';
 import 'package:ic_tools/resources/core/internet_scaffold.dart';
 import 'package:ic_tools/resources/values/colors.dart';
+import 'package:ic_tools/resources/values/dimen.dart';
 
 class MainRoute extends StatelessWidget {
 
@@ -41,21 +42,75 @@ class _MainStatefulWidgetState extends State<_MainStatefulWidget> {
     return BlocBuilder<MainBloc,MainState>(
       builder: (BuildContext context, MainState state) {
         return InternetScaffold(
-          backgroundColor: color_white,
+          backgroundColor: color_blue,
           content: SafeArea(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                AutoSizeText(
-                  AppLocalizations.of(context).translate("main_route_title")
-                ),
-                TextButton(
-                  child: AutoSizeText(
-                    AppLocalizations.of(context).translate("main_route_click_me")
+                Container(
+                  margin: const EdgeInsets.only(
+                    left: margin,
+                    right: margin,
+                    top: margin,
+                    bottom: margin,
                   ),
-                  onPressed: () {
-                    _bloc.add(LoadingMainEvent());
-                  },
+                  child: AutoSizeText(
+                    AppLocalizations.of(context).translate("main_route_title"),
+                    style: const TextStyle(
+                      fontSize: font_size_xxlarge,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
                 ),
+                Container(
+                  margin: const EdgeInsets.only(
+                    left: margin,
+                    right: margin,
+                    top: margin,
+                    bottom: margin,
+                  ),
+                  child: AutoSizeText(
+                    AppLocalizations.of(context).translate("main_route_description"),
+                    style: const TextStyle(
+                        fontSize: font_size_large
+                    ),
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.only(
+                    left: margin,
+                    right: margin,
+                    top: margin,
+                    bottom: margin,
+                  ),
+                  child: AutoSizeText(
+                    AppLocalizations.of(context).translate("ext_principal_to_token_id"),
+                    style: const TextStyle(
+                        fontSize: font_size_large
+                    ),
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.only(
+                    left: margin,
+                    right: margin,
+                    top: margin,
+                    bottom: margin,
+                  ),
+                  child: Row(
+                    children: [
+
+                    ],
+                  ),
+                )
+                // TextButton(
+                //   child: AutoSizeText(
+                //     AppLocalizations.of(context).translate("main_route_click_me")
+                //   ),
+                //   onPressed: () {
+                //     _bloc.add(LoadingMainEvent());
+                //   },
+                // ),
               ],
             )
           ),
