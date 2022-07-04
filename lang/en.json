@@ -6,6 +6,11 @@
 
     "ext_principal_to_token_id": "1) IC EXT standard Principal -> Token ID (token address)",
 
+    "ext_principal_enter_principal": "Enter Principal",
+    "ext_principal_enter_sign": "=>",
+    "ext_principal_enter_accountId": "Here is account ID",
+    "ext_principal_enter_copyToClipboard": "Copy to clipboard",
+
     "main_route_click_me": "Click me",
 
     "loading_dialog_title": "Loading..."

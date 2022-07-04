@@ -6,6 +6,7 @@ import 'package:ic_tools/bloc/main/main_bloc.dart';
 import 'package:ic_tools/resources/core/internet_scaffold.dart';
 import 'package:ic_tools/resources/values/colors.dart';
 import 'package:ic_tools/resources/values/dimen.dart';
+import 'package:ic_tools/resources/widgets/text_field/form_text_field.dart';
 
 class MainRoute extends StatelessWidget {
 
@@ -99,18 +100,74 @@ class _MainStatefulWidgetState extends State<_MainStatefulWidget> {
                   ),
                   child: Row(
                     children: [
-
+                      Expanded(
+                        child: FormTextField.text(
+                          labelText: AppLocalizations.of(context).translate("ext_principal_enter_principal"),
+                          controller: _bloc.principalController
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.only(
+                          left: margin,
+                          right: margin,
+                        ),
+                        child: TextButton(
+                          onPressed: () {
+                            _bloc.add(CalculateAccountIdMainEvent());
+                          },
+                          style: TextButton.styleFrom(
+                            primary: color_blue,
+                            backgroundColor: color_white,
+                            shadowColor: color_black,
+                            elevation: 1,
+                          ),
+                          child: AutoSizeText(
+                            AppLocalizations.of(context).translate("ext_principal_enter_sign"),
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: FormTextField.text(
+                            labelText: AppLocalizations.of(context).translate("ext_principal_enter_accountId"),
+                            enabled: false,
+                            controller: _bloc.accountIDController
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.only(
+                    left: margin,
+                    right: margin,
+                    top: margin,
+                    bottom: margin,
+                  ),
+                  child: Row(
+                    children: [
+                      const Expanded(
+                        flex: 3,
+                        child: SizedBox()
+                      ),
+                      Expanded(
+                        child: TextButton(
+                          onPressed: () {
+                            _bloc.add(CopyToClipboardAccountIdMainEvent());
+                          },
+                          style: TextButton.styleFrom(
+                            primary: color_blue,
+                            backgroundColor: color_white,
+                            shadowColor: color_black,
+                            elevation: 1,
+                          ),
+                          child: AutoSizeText(
+                            AppLocalizations.of(context).translate("ext_principal_enter_copyToClipboard"),
+                          ),
+                        ),
+                      )
                     ],
                   ),
                 )
-                // TextButton(
-                //   child: AutoSizeText(
-                //     AppLocalizations.of(context).translate("main_route_click_me")
-                //   ),
-                //   onPressed: () {
-                //     _bloc.add(LoadingMainEvent());
-                //   },
-                // ),
               ],
             )
           ),
